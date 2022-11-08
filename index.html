@@ -472,6 +472,7 @@
           </address>
         </div>
 
+        <!-- Social-footer -->
         <div class="social-footer">
           <h3 class="title-footer">приєднуйтесь</h3>
           <ul class="icon-list-footer">
@@ -505,35 +506,156 @@
             </li>
           </ul>
         </div>
+
+        <!-- Join footer  -->
+        <div class="join-footer">
+          <h3 class="title-footer">Підпишіться на розсилку</h3>
+          <form class="footer-form">
+            <label for="mail"></label>
+            <input
+              class="input-footer"
+              type="email"
+              name="mail"
+              id="mail"
+              placeholder="E-mail"
+              required
+            />
+
+            <button class="button button-footer" type="submit">
+              <span class="button-title"> Підписатися</span>
+              <svg width="24" height="24">
+                <use href="./images/icons-sprite.svg#icon-icon-send-1"></use>
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
+
+    <!-- Modal -->
     <div data-modal class="backdrop is-hidden">
       <div class="modal">
         <div class="modal-body">
-          <h2>Залиште свої дані, ми вам передзвонимо</h2>
-          <form>
-            <div><label for="name">
-              <input type="text" >
-            </label></div>
-
-
-
-
-          </form>
-
-
-
-
-
           <button class="modal-close" data-modal-close>
-                        <svg width="18px" height="18px" aria-label="btn close">
+            <svg
+              class="close"
+              width="18px"
+              height="18px"
+              aria-label="btn close"
+            >
               <use href="./images/icons-sprite.svg#icon-close-black-18dp"></use>
             </svg>
           </button>
-          <p></p>
+
+          <form>
+            <h2 class="form__title">Залиште свої дані, ми вам передзвонимо</h2>
+            <div class="form__group">
+              <label class="form__label" for="name">Ім'я </label>
+              <input
+                class="form__input"
+                type="text"
+                name="name"
+                id="name"
+                required
+              />
+              <svg class="form__icon" width="12" height="12">
+                <use href="./images/icons-sprite.svg#icon-form-name-1"></use>
+              </svg>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="tel">Телефон </label>
+              <input
+                class="form__input"
+                type="tel"
+                name="tel"
+                id="tel"
+                required
+              />
+              <svg class="form__icon" width="13" height="13">
+                <use href="./images/icons-sprite.svg#icon-form-tel-1"></use>
+              </svg>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="mail">Пошта </label>
+              <input
+                class="form__input"
+                type="email"
+                name="mail"
+                id="mail"
+                required
+              />
+              <svg class="form__icon" width="15" height="12">
+                <use href="./images/icons-sprite.svg#icon-form-mail-1"></use>
+              </svg>
+            </div>
+            <div class="form__group comment">
+              <label class="form__label" for="comment">Коментар</label>
+              <textarea
+                class="form__comment"
+                name="comment"
+                id="comment"
+                cols="30"
+                rows="10"
+                placeholder="Введіть текст"
+              ></textarea>
+            </div>
+
+            <div class="form__group agreement">
+              <label class="form__agreement-label">
+                <input
+                  class="form__agreement-input"
+                  type="checkbox"
+                  name="check"
+                  required
+                />
+                <span class="form__agreement-wrapper">
+                  <svg class="form__agreement-icon" width="16" height="15">
+                    <use
+                      href="./images/icons-sprite.svg#icon-icon-check-1"
+                    ></use>
+                  </svg>
+                </span>
+                <span>
+                  Погоджуюся з розсилкою та приймаю
+                  <a class="form__agreement-link" href="#"
+                    >Умови договору</a
+                  ></span
+                >
+              </label>
+            </div>
+
+            <div class="form__button">
+              <button class="button" type="submit">Відправити</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
     <script src="./js/modal.js"></script>
+
+    <script>
+      (() => {
+        document
+          .querySelector(".js-speaker-form")
+          .addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            new FormData(e.currentTarget).forEach((value, name) =>
+              console.log(`${name}: ${value}`)
+            );
+
+            // e.currentTarget.reset();
+          });
+
+        document.querySelector(".comment").addEventListener("input", (e) => {
+          console.log(e.target.value);
+          if (e.target.value !== "") {
+            document.querySelector(".form__btn").removeAttribute("disabled");
+          } else {
+            document.querySelector(".form__btn").setAttribute("disabled", true);
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
