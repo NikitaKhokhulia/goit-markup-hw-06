@@ -677,7 +677,6 @@ body {
   background: #2f303a;
   color: var(--primary-text-color);
   padding: 16px;
-  outline: none;
 }
 
 .input-footer::placeholder {
@@ -688,9 +687,6 @@ body {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.input-footer:focus {
-  border-color: var(--accent-color);
-}
 
 .button-footer {
   display: flex;
