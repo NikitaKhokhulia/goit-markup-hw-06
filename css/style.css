@@ -176,7 +176,7 @@ body {
 }
 
 .site-nav .link::after {
-  transition: background-color var(--transition-hover-focus);
+  
   background-color: transparent;
   display: block;
   position: absolute;
@@ -188,6 +188,7 @@ body {
   height: 4px;
   background-color: transparent;
   border-radius: 2px;
+  transition: background-color var(--transition-hover-focus);
 }
 
 .site-nav .link:hover::after,
